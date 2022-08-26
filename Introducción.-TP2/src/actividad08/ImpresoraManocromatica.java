@@ -7,7 +7,11 @@ public class ImpresoraManocromatica {
 	private boolean estaEncendida;
 	private int cantHojas;
 	private int nivelTinta;
+	private final int MAX_HOJA = 20;
+	private final int LIMITE_HOJA = 35;
+	private final int MAX_TINTA = 50;
 	
+
 	
 	public ImpresoraManocromatica() {
 		super();
@@ -67,9 +71,9 @@ public class ImpresoraManocromatica {
 	public int nivelSegunCantCaracteres(int caracteres) {
 		int nivelNecesitado=0;
 		
-		while(caracteres>=50) {
+		while(caracteres>=MAX_TINTA) {
 			nivelNecesitado++;
-			 caracteres = caracteres - 50;
+			 caracteres = caracteres - MAX_TINTA;
 		}
 		
 		return nivelNecesitado;
@@ -79,9 +83,9 @@ public class ImpresoraManocromatica {
 	public int cantHojasSegunCaracteres(int caracteres) {
 		int nivelNecesitado=0;
 		
-		while(caracteres>=20) {
+		while(caracteres>=MAX_HOJA) {
 			nivelNecesitado++;
-			 caracteres = caracteres - 50;
+			 caracteres = caracteres - MAX_HOJA;
 		}
 		
 		return nivelNecesitado;
@@ -90,7 +94,7 @@ public class ImpresoraManocromatica {
 	
 	
 	public void recargarHojas(int hojas) {
-		if(hojas<=35) {
+		if(hojas<=LIMITE_HOJA) {
 			setCantHojas(hojas);
 		} else {
 			System.out.println("No debe superar el límite");
