@@ -48,11 +48,20 @@ public class ImpresoraManocromatica {
 
 	
 	public void imprimir(Documento doc) {
-		
-		
-		
-		
-		
+		 int nivelRequerido = nivelSegunCantCaracteres(doc.getTexto().length());
+		 int hojasRequeridas = cantHojasSegunCaracteres(doc.getTexto().length());		
+		if (estaEncendida) {
+			if(this.nivelTinta>=nivelRequerido && this.cantHojas>=hojasRequeridas) {
+				System.out.println(doc.getFecha() + "      "  + doc.getTitulo());
+				System.out.println(doc.getTexto());
+				setCantHojas(cantHojas - hojasRequeridas);
+				setNivelTinta(nivelTinta - nivelRequerido); 
+			} else {
+				System.out.println("Ojo, sin papel o sin nivel. Asegurate de que esté todo en orden");
+			}
+		} else {
+			System.out.println("Máquina Apagada");
+		}
 	}
 	
 	public int nivelSegunCantCaracteres(int caracteres) {
@@ -66,10 +75,25 @@ public class ImpresoraManocromatica {
 		return nivelNecesitado;
 
 	}
+
+	public int cantHojasSegunCaracteres(int caracteres) {
+		int nivelNecesitado=0;
+		
+		while(caracteres>=20) {
+			nivelNecesitado++;
+			 caracteres = caracteres - 50;
+		}
+		
+		return nivelNecesitado;
+
+	}
+	
 	
 	public void recargarHojas(int hojas) {
 		if(hojas<=35) {
 			setCantHojas(hojas);
+		} else {
+			System.out.println("No debe superar el límite");
 		}
 		
 	}
@@ -85,7 +109,7 @@ public class ImpresoraManocromatica {
 	
 	public void apagarImpresora() {
 		if(estaEncendida==false) {
-			System.out.println("La máquina ya se encuentra aoagada");
+			System.out.println("La máquina ya se encuentra apagada");
 		} else {
 			setEstaEncendida(false);
 		}
