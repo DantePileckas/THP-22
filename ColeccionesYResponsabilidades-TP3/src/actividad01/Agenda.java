@@ -45,5 +45,63 @@ public class Agenda {
 	}
 	
 	
+	//Remover persona a mi lista
+	public Persona removerPersona(String dni) {
+		Persona persona = buscarPersona(dni);
+			
+				if(persona!=null) {
+					personas.remove(persona);				
+				} 
+				
+				return persona;
+				
+	}
+	
+	//Modificar Domicilio. 
+	public boolean modificarDomicilio(String dni, String domicilio) {
+	boolean sePudo = false;
+	Persona persona = buscarPersona(dni);
+	
+		if(persona != null) {
+			persona.setDomicilio(domicilio);
+			sePudo = true;
+		} 
+	
+		return sePudo;
+	}
 
+	//Listar por pantalla a cada persona
+	public void listarPersonas() {
+		
+		for (Persona persona : personas) {
+			System.out.println(persona);
+		}
+		
+	}
+	
+	//Devolver el último
+	public Persona devovlerUlitmo() {
+		int i = 0;
+		Persona persona = null;
+		
+		for (Persona p : personas) {
+			persona = p;
+		}
+	
+		return persona;
+		
+	}
+
+	//Eliminar todos los elementos sin utilizar el clear
+	public void eliminarElementos() {
+		int i = 0;
+		
+		while(personas.size()>0) {
+			personas.remove(i);
+		}
+		
+	}
+	
+	
+	
 }
