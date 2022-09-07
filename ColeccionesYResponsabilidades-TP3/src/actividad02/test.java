@@ -25,7 +25,12 @@ public class test {
 		barrio1.addProp(propiedad1);
 		barrio1.addProp(propiedad7);
 		barrio1.addProp(propiedad3);
+		
+		barrio2.addProp(propiedad2);
+		barrio2.addProp(propiedad4);
 
+
+		System.out.println("Testeando el método Mostrar Propiedades según el tipo");
 		barrio1.mostrarPropiedades(Tipo.CASA);
 		
 		
@@ -33,7 +38,8 @@ public class test {
 		inmobiliaria.addBarrio(barrio2);
 		inmobiliaria.addBarrio(barrio3);
 
-		
+		System.out.println("Mostrando Todas las propiedades");
+		inmobiliaria.mostrarPropiedades();
 		
 		
 	}
