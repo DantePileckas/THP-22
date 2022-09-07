@@ -69,6 +69,12 @@ public class Barrio {
 	
 	return propiedad;
 	}
+
+	@Override
+	public String toString() {
+		return "Barrio [nombre=" + nombre + ", propiedades=" + propiedades + "]";
+	}
+	
 	
 	
 	

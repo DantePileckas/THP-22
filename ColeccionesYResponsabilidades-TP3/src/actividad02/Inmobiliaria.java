@@ -30,10 +30,12 @@ public class Inmobiliaria {
 	public ArrayList<Barrio> obtenerBarrioMaxProp(){
 		ArrayList<Barrio> barriosDevolver = new ArrayList<Barrio>();
 		Barrio barrioMax = null;
+		int contadorMax = 0;
 		
 		for (Barrio barrio : barrios) {
-			if(barrio.getPropiedades().size()>barrioMax.getPropiedades().size()) {
+			if(barrio.getPropiedades().size()>contadorMax) {
 				barrioMax = barrio;
+				contadorMax=barrio.getPropiedades().size();
 			}
 				
 		}
@@ -49,10 +51,12 @@ public class Inmobiliaria {
 		Propiedad propiedad = null;
 		Barrio barrioCorrespondiente = null;
 		
-		for (Barrio barrio : barrios) {
-			propiedad = barrio.buscarPropiedad(domicilio);
-			barrioCorrespondiente = barrio;
-		}
+			for (Barrio barrio : barrios) {
+				if(propiedad==null) {
+				propiedad = barrio.buscarPropiedad(domicilio);
+				barrioCorrespondiente = barrio;
+				}
+			}
 		
 		if(propiedad!=null) {
 			barrioCorrespondiente.eliminarProp(propiedad);
@@ -65,7 +69,19 @@ public class Inmobiliaria {
 	
 	
 	//CambiarPropiedad
-	
+	public void cambiarPropiedad(String domicilio, Barrio barrio) {
+		Propiedad propRemover; 
+		
+		for (Barrio b : barrios) {
+			propRemover = b.buscarPropiedad(domicilio);
+			if(propRemover!=null) {
+				b.eliminarProp(propRemover);
+				barrio.addProp(propRemover);
+			}
+		}
+		
+		
+	}
 	
 	
 	

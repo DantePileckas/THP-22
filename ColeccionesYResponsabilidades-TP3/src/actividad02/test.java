@@ -41,6 +41,17 @@ public class test {
 		System.out.println("Mostrando Todas las propiedades");
 		inmobiliaria.mostrarPropiedades();
 		
+		System.out.println(inmobiliaria.obtenerBarrioMaxProp());
+		
+		inmobiliaria.borrarPropiedad("Cachi");
+		barrio1.mostrarPropiedades();
+	
+		System.out.println("Mostrando del barrio 1");
+		inmobiliaria.cambiarPropiedad("Esquiu", barrio2);
+		barrio1.mostrarPropiedades();
+		System.out.println("Mostrando del barrio 2");
+		barrio2.mostrarPropiedades();
+		
 		
 	}
 
