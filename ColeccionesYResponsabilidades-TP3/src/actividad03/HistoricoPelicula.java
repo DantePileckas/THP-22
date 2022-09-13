@@ -11,5 +11,8 @@ public class HistoricoPelicula {
 		this.peliculas = new ArrayList<Pelicula>();
 	}
 	
+	public void agregarPeli(Pelicula pelicula) {
+		peliculas.add(pelicula);
+	}
 	
 }

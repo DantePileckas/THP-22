@@ -56,6 +56,23 @@ public class Cliente {
 		this.categoria = categoria;
 	}
 
+	public boolean esDeudor() {
+		boolean tieneDeuda = false;
+		if(getSaldoAPagar()>0) {
+			tieneDeuda=true;
+		}
+		return tieneDeuda;
+	}
+	
+	public boolean puedeVer(Categoria categoriaPeli, Categoria categoriaCli) {
+		boolean puedeVer = false;
+		categoriaCli = getCategoria();
+		if(categoriaCli.equals(categoriaPeli)) {
+			puedeVer = true;
+		}
+		return puedeVer;
+	}
+	
 	@Override
 	public String toString() {
 		return "Cliente [dni=" + dni + ", nombre=" + nombre + ", saldoAPagar=" + saldoAPagar + ", historicoPelicula="
