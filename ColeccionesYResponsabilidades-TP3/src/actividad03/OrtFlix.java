@@ -85,22 +85,24 @@ public class OrtFlix {
 	}
 	
 	public boolean ClienteListaNegra(String dni) {
-		boolean estaEnLista = false;
-		for (Cliente cliente : clientes) {
+		boolean esta = false;
+		for (Cliente cliente : clientesDeudores) {
 			if(cliente.getDni().equals(dni)) {
-				estaEnLista = true; 
+				esta = true; 
+			} else {
+				esta = false;
 			}
 		}
-		return estaEnLista;
+		return esta;
 	}
 	
 	public RespuestaLogeo darDeAlta(String dni, Categoria categoria) {
 		RespuestaLogeo rtaLogeo = RespuestaLogeo.ALTA_OK;
 		Cliente cliente = buscarCliente(dni);
 		
-		if(cliente!=null) {
-			if(ClienteListaNegra(dni)) {
-				clientes.add(cliente);
+		if(cliente==null) {
+			if(!ClienteListaNegra(dni)) {
+				clientes.add(new Cliente(dni, "", 0.0, categoria));
 			} else {
 				rtaLogeo = RespuestaLogeo.CLIENTE_DEUDOR;
 			}
