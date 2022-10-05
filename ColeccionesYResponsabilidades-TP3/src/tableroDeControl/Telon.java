@@ -32,5 +32,15 @@ public class Telon {
 		}
 		return estaAbierto;
 	}
+
+	public boolean isAbierto() {
+		return abierto;
+	}
+
+	public void setAbierto(boolean abierto) {
+		this.abierto = abierto;
+	}
+	
+	
 	
 }
