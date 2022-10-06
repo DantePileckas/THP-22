@@ -15,7 +15,13 @@ public class Tablero {
 	
 	public Tablero(int cantidadMaxLuces) {
 		super();
-		this.cantidadMaxLuces = cantidadMaxLuces;
+		if(cantidadMaxLuces<LUCES_MIN) {
+			this.cantidadMaxLuces = LUCES_MIN;
+		} else if(cantidadMaxLuces>LUCES_MAX) {
+			this.cantidadMaxLuces=LUCES_MAX;
+		} else {
+			this.cantidadMaxLuces = cantidadMaxLuces;
+		}
 		this.luces = new ArrayList<Lampara>();
 		this.historicoLuces = new ArrayList<HistoricoLuces>();
 		this.telon = telon;
@@ -84,8 +90,20 @@ public class Tablero {
 		
 	}
 	
-	public void agregarLampara() {
+	public void agregarLampara(int numero, Sector sector, Color color) {
 		
+		if(this.luces.size()<=LUCES_MAX) {
+			this.luces.add(new Lampara(numero, sector, color));
+			System.out.println("Lámpara Agregada");
+		} else {
+			System.out.println("Excede. ¡Ojo!");
+		}
+		
+	}
+	
+	public void mostrarOperatividad() {
+		double porcentaje = this.luces.size()*100/cantidadMaxLuces;
+		System.out.println(porcentaje + "%");
 	}
 	
 }
