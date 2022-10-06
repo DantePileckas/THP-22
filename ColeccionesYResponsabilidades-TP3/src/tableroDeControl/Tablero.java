@@ -24,15 +24,18 @@ public class Tablero {
 		}
 		this.luces = new ArrayList<Lampara>();
 		this.historicoLuces = new ArrayList<HistoricoLuces>();
-		this.telon = telon;
+		this.telon = new Telon();
 		
 	}
 	
 	public boolean subirTelon() {
 		boolean pudoSubir = false;
-		if(!telon.isAbierto() && luces.size()>=LUCES_MIN) {
+		if(!telon.getAbierto() && luces.size()>=LUCES_MIN) {
 			pudoSubir = true;
 			telon.setAbierto(pudoSubir);
+			System.out.println("Telón, Arriba");
+		} else {
+			System.out.println("El telón ya está subido!");
 		}
 		
 		return pudoSubir;
@@ -45,7 +48,7 @@ public class Tablero {
 	}
 
 	private void bajarTelon() {
-		if(telon.isAbierto()) {
+		if(telon.getAbierto()) {
 			telon.setAbierto(false);
 		}
 	}

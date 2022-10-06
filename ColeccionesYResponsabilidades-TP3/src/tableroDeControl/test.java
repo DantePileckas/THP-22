@@ -28,7 +28,9 @@ public class test {
 		tablero.prenderLuz(5);
 		tablero.prenderLuz(50);
 
-		
+		tablero.subirTelon();
+		tablero.subirTelon();
+
 		
 	}
 

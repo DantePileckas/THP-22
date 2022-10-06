@@ -5,10 +5,7 @@ public class Telon {
 	private boolean abierto;
 	
 	public Telon() {
-		if (!estaAbierto()) {
-			this.abierto = false;
-		}
-		
+		this.abierto = false;
 	}
 	
 	public boolean subir() {
@@ -27,14 +24,14 @@ public class Telon {
 	
 	public boolean estaAbierto() {
 		boolean estaAbierto = false;
-		if (this.abierto) {
+		if (abierto) {
 			estaAbierto=true;
 		}
 		return estaAbierto;
 	}
 
-	public boolean isAbierto() {
-		return abierto;
+	public boolean getAbierto() {
+		return this.abierto;
 	}
 
 	public void setAbierto(boolean abierto) {
