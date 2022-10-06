@@ -70,6 +70,9 @@ public class Tablero {
 		if(luz!=null && !luz.estaPrendida()) {
 			luz.prender();
 			pudoPrender = true;
+			System.out.println("La luz: " + luz.getNumero() + " se Pudo Prender");
+		} else {
+			System.out.println("¡¡No se pudo prender!!");
 		}
 		
 		return pudoPrender;
@@ -105,5 +108,7 @@ public class Tablero {
 		double porcentaje = this.luces.size()*100/cantidadMaxLuces;
 		System.out.println(porcentaje + "%");
 	}
+	
+	
 	
 }

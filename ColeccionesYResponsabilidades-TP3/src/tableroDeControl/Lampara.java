@@ -12,8 +12,10 @@ public class Lampara {
 	//Constructor
 	public Lampara(int numero, Sector sector, Color color) {
 		super();
+		this.numero = numero;
 		this.sector = sector;
 		this.color = color;
+		this.prendida = false;
 	}
 
 	public int getNumero() {

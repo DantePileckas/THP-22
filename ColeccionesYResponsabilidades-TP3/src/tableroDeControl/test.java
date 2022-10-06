@@ -24,6 +24,12 @@ public class test {
 		
 		tablero.mostrarOperatividad();
 
+		tablero.prenderLuz(5);
+		tablero.prenderLuz(5);
+		tablero.prenderLuz(50);
+
+		
+		
 	}
 
 }
