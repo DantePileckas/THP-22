@@ -30,7 +30,15 @@ public class test {
 
 		tablero.subirTelon();
 		tablero.subirTelon();
+		
+		tablero.prenderLuces(Sector.CENTRO);
 
+		//falta testear el cambio de color
+		
+		tablero.apagarYCerrarTodo();
+
+		tablero.mostrarHistoricoLuces();
+		
 		
 	}
 

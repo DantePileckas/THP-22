@@ -42,14 +42,23 @@ public class Tablero {
 	}
 	
 	private void apagarLuces() {
+		int i = 0;
 		for (Lampara l : luces) {
-			l.apagar();
+			if(l.isPrendida()) {
+				l.apagar();
+				i++;	
+			}	
 		}
+		System.out.println("Se apagaron " + i + " luces");
 	}
+	
 
 	private void bajarTelon() {
 		if(telon.getAbierto()) {
 			telon.setAbierto(false);
+			System.out.println("Se bajó el telón");
+		} else {
+			System.out.println("El telón ya se bajó");
 		}
 	}
 	
@@ -86,7 +95,8 @@ public class Tablero {
 		for (Lampara l : luces) {
 			if(l.getSector()==sector && !l.isPrendida()) {
 				prenderLuz(l.getNumero());
-			}
+				System.out.println("Se prendieron luces del sector " + sector );
+			} 
 		}
 	}
 	  	
@@ -99,8 +109,10 @@ public class Tablero {
 	public void agregarLampara(int numero, Sector sector, Color color) {
 		
 		if(this.luces.size()<=LUCES_MAX) {
-			this.luces.add(new Lampara(numero, sector, color));
+			Lampara lampara = new Lampara(numero, sector, color);
+			this.luces.add(lampara);
 			System.out.println("Lámpara Agregada");
+			historicoLuces.add(new HistoricoLuces(lampara, Accion.AGREGAR));
 		} else {
 			System.out.println("Excede. ¡Ojo!");
 		}
@@ -112,6 +124,9 @@ public class Tablero {
 		System.out.println(porcentaje + "%");
 	}
 	
-	
+	public void mostrarHistoricoLuces() {
+		System.out.println(historicoLuces.toString());
+		
+	}
 	
 }
