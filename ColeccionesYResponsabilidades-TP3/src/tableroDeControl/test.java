@@ -37,6 +37,7 @@ public class test {
 		
 		tablero.apagarYCerrarTodo();
 
+		//Me falta agregar la acción.
 		tablero.mostrarHistoricoLuces();
 		
 		
