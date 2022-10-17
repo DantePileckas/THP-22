@@ -8,7 +8,7 @@ public class Socio {
 	private int edad;
 	private ArrayList<Socio> amigos;
 	
-	public Socio(String nombre, int edad, ArrayList<Socio> amigos) {
+	public Socio(String nombre, int edad) {
 		super();
 		this.nombre = nombre;
 		this.edad = edad;
@@ -39,6 +39,50 @@ public class Socio {
 		this.amigos = amigos;
 	}
 
+	public void agregarAmistad(Socio socio) {
+		this.amigos.add(socio);
+	}
+	
+	public void eliminarAmistad(Socio socio) {
+		this.amigos.remove(socio);
+	}
+	
+	public Socio buscarAmigo(String nombre) {
+		Socio socio = null;
+		int i = 0;
+
+		while (i < amigos.size() && socio == null) {
+			if (amigos.get(i).getNombre().equals(nombre)) {
+				socio = amigos.get(i);
+			} else {
+				i++;
+			}
+	}
+		return socio;
+	}
+
+	public double promedioAmigos() {
+		double edadTotal = 0;
+		double contador = 0;
+		double promedio = 0;
+		for (Socio s : amigos) {
+			edadTotal += s.getEdad();
+			contador++;
+		}
+		promedio = edadTotal/contador;
+		return promedio;
+	}
+	
+	public boolean tieneAmigos() {
+		return this.amigos != null;
+	}
+	
+	public void mostrarAmigos() {
+		for (Socio socio : amigos) {
+			System.out.println("[Amigo]" + socio.getNombre() + " " + socio.getEdad());
+		}
+	}
+	
 	@Override
 	public String toString() {
 		return "Socio [nombre=" + nombre + ", edad=" + edad + ", amigos=" + amigos + "]";
